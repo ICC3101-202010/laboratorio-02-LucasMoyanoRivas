@@ -6,7 +6,8 @@ namespace SegundoLaboratorio
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Cancion primera = new Cancion("lights","Hola","ellie","pop");
+            Console.WriteLine(primera.Informacion());
         }
     }
 }
