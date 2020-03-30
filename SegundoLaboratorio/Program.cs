@@ -13,7 +13,7 @@ namespace SegundoLaboratorio
             Espotifai cancion2 = new Espotifai(segunda);
             Espotifai cancion3 = new Espotifai(tercera);
             Console.WriteLine("Bienvenido a tu Spotify");
-            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion o presione 3 para salir");
+            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion, presione 3 para buscar canciones por criterio o presione 4 para salir");
             string numero = Console.ReadLine();
             if (numero == "1")
             {
@@ -32,7 +32,7 @@ namespace SegundoLaboratorio
                 Console.WriteLine("Ingrese el Genero");
                 string generoAgregado = Console.ReadLine();
                 Cancion cuarta = new Cancion(nombreAgregado, albumAgregado, artistaAgregado, generoAgregado);
-                Espotifai cancion4 = new Espotifai(cuarta);;
+                Espotifai cancion4 = new Espotifai(cuarta);
                 if (cancion1.AgregarCancion(cuarta) == false & cancion2.AgregarCancion(cuarta) == false & cancion3.AgregarCancion(cuarta) == false)
                 {
                     Console.WriteLine("Cancion Agregada con exito");
@@ -47,6 +47,14 @@ namespace SegundoLaboratorio
                 }
             }
             if (numero == "3")
+            {
+                Console.WriteLine("Ingrese un Criterio valido:");
+                string criterioAgregado = Console.ReadLine();
+                Console.WriteLine("Ingrese un valor valido:");
+                string valorAgregado = Console.ReadLine();
+
+            }
+            if (numero == "4")
             {
                 Console.WriteLine("Saliendo de Spotify");
             }
