@@ -43,33 +43,30 @@ namespace SegundoLaboratorio
         {
             Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
         }
-        public void CancionesPorCriterio(string criterio, string valor)
+        public Cancion[] CancionesPorCriterio(string criterio, string valor)
         {
-            if (criterio == "nombre de la cancion")
+            if (criterio == "nombre")
             {
                 if (songs.Contains(valor) == true)
                 {
-                    criterioCancion.Add(valor);
-                    for (int i = 0; i < criterioCancion.Count; ++i)
-                        Console.Write(criterioCancion[i]);
+                    Cancion busqueda = new Cancion(valor, album[0], artist[0], gender[0]);
+
+                    return busqueda;
                 }
                 else
                 {
-                    Console.WriteLine($"No se ha encontrado en el Criterio seleccionado el valor escogido. {criterioCancion}");
+                    Console.WriteLine($"No se ha encontrado en el Criterio seleccionado el valor escogido.");
                 }
             }
             else if (criterio == "álbum")
             {
                 if (album.Contains(valor) == true)
                 {
-                    criterioAlbum.Add(valor);
-                    for (int i = 0; i < criterioAlbum.Count; ++i)
-                        Console.Write(criterioAlbum[i]);
+                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
                 }
                 else
                 {
                     Console.WriteLine("No se ha encontrado en el Criterio seleccionado para el valor escogido");
-                    Console.WriteLine(criterioAlbum);
                 }
 
             }
@@ -77,14 +74,11 @@ namespace SegundoLaboratorio
             {
                 if (artist.Contains(valor) == true)
                 {
-                    criterioArtista.Add(valor);
-                    for (int i = 0; i < criterioArtista.Count; ++i)
-                        Console.Write(criterioArtista[i]);
+                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
                 }
                 else
                 {
                     Console.WriteLine("No se ha encontrado en el Criterio seleccionado el valor escogido");
-                    Console.WriteLine(criterioArtista);
                 }
 
             }
@@ -92,21 +86,17 @@ namespace SegundoLaboratorio
             {
                 if (gender.Contains(valor) == true)
                 {
-                    criterioGenero.Add(valor);
-                    for (int i = 0; i < criterioGenero.Count; ++i)
-                        Console.Write(criterioGenero[i]);
+                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
                 }
                 else
                 {
                     Console.WriteLine("No se ha encontrado en el Criterio seleccionado el valor escogido");
-                    Console.WriteLine(criterioGenero);
                 }
 
             }
             else
             {
                 Console.WriteLine("El criterio seleccionado no es valido");
-                Console.WriteLine(criterioCancion);
             }
 
         }
