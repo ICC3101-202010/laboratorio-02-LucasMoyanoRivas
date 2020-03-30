@@ -9,10 +9,6 @@ namespace SegundoLaboratorio
         private List<string> album = new List<string>();
         private List<string> artist = new List<string>();
         private List<string> gender = new List<string>();
-        private List<string> criterioCancion = new List<string>();
-        private List<string> criterioAlbum = new List<string>();
-        private List<string> criterioArtista = new List<string>();
-        private List<string> criterioGenero = new List<string>();
         public Espotifai(Cancion song)
         {
             songs.Add(song.GetName());
@@ -45,59 +41,52 @@ namespace SegundoLaboratorio
         }
         public Cancion[] CancionesPorCriterio(string criterio, string valor)
         {
-            if (criterio == "nombre")
+            if (criterio == "nombre" || criterio == "álbum" || criterio == "artista" || criterio == "género")
             {
                 if (songs.Contains(valor) == true)
                 {
-                    Cancion busqueda = new Cancion(valor, album[0], artist[0], gender[0]);
-
-                    return busqueda;
+                    Console.WriteLine($"Canciones con el criterio: {criterio}");
+                    Cancion buscada = new Cancion(valor, "", "", "");
+                    Cancion[] canciones = {buscada};
+                    return canciones;
+                }
+                else if (album.Contains(valor) == true)
+                {
+                    Console.WriteLine($"Canciones con el criterio: {criterio}");
+                    Cancion buscada = new Cancion("", valor, "", "");
+                    Cancion[] canciones = { buscada };
+                    return canciones;
+                }
+                else if (artist.Contains(valor) == true)
+                {
+                    Console.WriteLine($"Canciones con el criterio: {criterio}");
+                    Cancion buscada = new Cancion("", "", valor, "");
+                    Cancion[] canciones = { buscada };
+                    return canciones;
+                }
+                else if (gender.Contains(valor) == true)
+                {
+                    Console.WriteLine($"Canciones con el criterio: {criterio}");
+                    Cancion buscada = new Cancion("", "", "", valor);
+                    Cancion[] canciones = { buscada };
+                    return canciones;
                 }
                 else
                 {
-                    Console.WriteLine($"No se ha encontrado en el Criterio seleccionado el valor escogido.");
-                }
-            }
-            else if (criterio == "álbum")
-            {
-                if (album.Contains(valor) == true)
-                {
-                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado en el Criterio seleccionado para el valor escogido");
-                }
-
-            }
-            else if (criterio == "artista")
-            {
-                if (artist.Contains(valor) == true)
-                {
-                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado en el Criterio seleccionado el valor escogido");
-                }
-
-            }
-            else if (criterio == "genero")
-            {
-                if (gender.Contains(valor) == true)
-                {
-                    Console.WriteLine($"Cancion:{songs[0]}, Album: {album[0]}, Artista: {artist[0]}, Genero:{gender[0]}");
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado en el Criterio seleccionado el valor escogido");
+                    Console.WriteLine("El valor elegido para el criterio seleccionado no es valido");
+                    Cancion[] buscada = { };
+                    return buscada;
                 }
 
             }
             else
             {
                 Console.WriteLine("El criterio seleccionado no es valido");
+                Cancion[] buscada = { };
+                return buscada;
             }
+
+  
 
         }
     }

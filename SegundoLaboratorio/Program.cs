@@ -52,7 +52,49 @@ namespace SegundoLaboratorio
                 string criterioAgregado = Console.ReadLine();
                 Console.WriteLine("Ingrese un valor valido:");
                 string valorAgregado = Console.ReadLine();
-
+                if (valorAgregado == primera.GetName() || valorAgregado == primera.GetAlbum() || valorAgregado == primera.GetArtist() || valorAgregado == primera.GetGender())
+                {
+                    cancion1.CancionesPorCriterio(criterioAgregado, valorAgregado);
+                    Console.WriteLine($"{primera.GetName()} de {primera.GetArtist()} ");
+                    if (valorAgregado == segunda.GetGender())
+                    {
+                        Console.WriteLine($"{segunda.GetName()} de {segunda.GetArtist()}");
+                    }
+                    else if (valorAgregado == tercera.GetGender())
+                    {
+                        Console.WriteLine($"{tercera.GetName()} de {tercera.GetArtist()}");
+                    }
+                }
+                else if (valorAgregado == segunda.GetName() || valorAgregado == segunda.GetAlbum() || valorAgregado == segunda.GetArtist() || valorAgregado == segunda.GetGender())
+                {
+                    cancion2.CancionesPorCriterio(criterioAgregado, valorAgregado);
+                    Console.WriteLine($"{segunda.GetName()} de {segunda.GetArtist()}");
+                    if (valorAgregado == primera.GetGender())
+                    {
+                        Console.WriteLine($"{primera.GetName()} de {primera.GetArtist()} ");
+                    }
+                    if (valorAgregado == tercera.GetGender())
+                    {
+                        Console.WriteLine($"{tercera.GetName()} de {tercera.GetArtist()}");
+                    }
+                }
+                else if (valorAgregado == tercera.GetName() || valorAgregado == tercera.GetAlbum() || valorAgregado == tercera.GetArtist() || valorAgregado == tercera.GetGender())
+                {
+                    cancion3.CancionesPorCriterio(criterioAgregado, valorAgregado);
+                    Console.WriteLine($"{tercera.GetName()} de {tercera.GetArtist()}");
+                    if (valorAgregado == primera.GetGender())
+                    {
+                        Console.WriteLine($"{primera.GetName()} de {primera.GetArtist()} ");
+                    }
+                    if (valorAgregado == segunda.GetGender())
+                    {
+                        Console.WriteLine($"{segunda.GetName()} de {segunda.GetArtist()}");
+                    }
+                }
+                else
+                {
+                    cancion1.CancionesPorCriterio(criterioAgregado, valorAgregado);
+                }
             }
             if (numero == "4")
             {
