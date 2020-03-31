@@ -17,7 +17,7 @@ namespace SegundoLaboratorio
             Cancion verPlaylist = new Cancion("", "", "", "");
             Espotifai verPlaylist2 = new Espotifai(verPlaylist);
             Console.WriteLine("Bienvenido a tu Spotify");
-            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion, presione 3 para buscar canciones por criterio, presione 4 para Agregar Playlist, preione 5 para ver mis playlist o presione 6 para salir");
+            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion, presione 3 para buscar canciones por criterio, presione 4 para Agregar Playlist, preione 5 para ver las playlist o presione 6 para salir");
             string numero = Console.ReadLine();
             if (numero == "1")
             {
@@ -160,7 +160,10 @@ namespace SegundoLaboratorio
             if (numero == "5")
             {
                 cancion1.VerMisPlaylists();
+                cancion2.VerMisPlaylists();
+                cancion3.VerMisPlaylists();
             }
+
             if (numero == "6")
             {
                 Console.WriteLine("Saliendo de Spotify");
