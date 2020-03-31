@@ -12,8 +12,12 @@ namespace SegundoLaboratorio
             Espotifai cancion1 = new Espotifai(primera);
             Espotifai cancion2 = new Espotifai(segunda);
             Espotifai cancion3 = new Espotifai(tercera);
+            Cancion playlist = new Cancion("", "", "", "");
+            Espotifai almacenamiento = new Espotifai(playlist);
+            Cancion verPlaylist = new Cancion("", "", "", "");
+            Espotifai verPlaylist2 = new Espotifai(verPlaylist);
             Console.WriteLine("Bienvenido a tu Spotify");
-            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion, presione 3 para buscar canciones por criterio o presione 4 para salir");
+            Console.WriteLine("Presiona 1 para ver todas las canciones, presione 2 para agregar una cancion, presione 3 para buscar canciones por criterio, presione 4 para Agregar Playlist, preione 5 para ver mis playlist o presione 6 para salir");
             string numero = Console.ReadLine();
             if (numero == "1")
             {
@@ -97,6 +101,67 @@ namespace SegundoLaboratorio
                 }
             }
             if (numero == "4")
+            {
+                Console.WriteLine("Ingrese un criterio valido");
+                string playlistCriterio = Console.ReadLine();
+                Console.WriteLine("Ingrese un valor valido");
+                string playlistValor = Console.ReadLine();
+                Console.WriteLine("Que nombre le desea poner a la playlist?");
+                string nombrePlaylist = Console.ReadLine();
+                if (playlistValor == primera.GetName() || playlistValor == primera.GetAlbum() || playlistValor == primera.GetArtist() || playlistValor == primera.GetGender())
+                {
+                    Console.WriteLine($"Playlist con el criterio: {playlistCriterio}");
+                    Console.WriteLine($"Nombre de la Playlist: {nombrePlaylist}");
+                    cancion1.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    if (playlistValor == segunda.GetGender())
+                    {
+                        cancion2.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                    else if (playlistValor == tercera.GetGender())
+                    {
+                        cancion3.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                }
+                    
+                else if (playlistValor == segunda.GetName() || playlistValor == segunda.GetAlbum() || playlistValor == segunda.GetArtist() || playlistValor == segunda.GetGender())
+                {
+                    Console.WriteLine($"Playlist con el criterio: {playlistCriterio}");
+                    Console.WriteLine($"Nombre de la Playlist: {nombrePlaylist}");
+                    cancion2.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    if (playlistValor == primera.GetGender())
+                    {
+                        cancion1.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                    else if (playlistValor == tercera.GetGender())
+                    {
+                        cancion3.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                }
+                    
+                else if (playlistValor == tercera.GetName() || playlistValor == tercera.GetAlbum() || playlistValor == tercera.GetArtist() || playlistValor == tercera.GetGender())
+                {
+                    Console.WriteLine($"Playlist con el criterio: {playlistCriterio}");
+                    Console.WriteLine($"Nombre de la Playlist: {nombrePlaylist}");
+                    cancion3.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    if (playlistValor == segunda.GetGender())
+                    {
+                        cancion2.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                    else if (playlistValor == primera.GetGender())
+                    {
+                        cancion1.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                    }
+                }
+                else
+                {
+                    cancion1.GenerarPlaylist(playlistCriterio, playlistValor, nombrePlaylist);
+                }
+            }
+            if (numero == "5")
+            {
+                cancion1.VerMisPlaylists();
+            }
+            if (numero == "6")
             {
                 Console.WriteLine("Saliendo de Spotify");
             }

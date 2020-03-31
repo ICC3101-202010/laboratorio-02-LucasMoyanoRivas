@@ -9,6 +9,8 @@ namespace SegundoLaboratorio
         private List<string> album = new List<string>();
         private List<string> artist = new List<string>();
         private List<string> gender = new List<string>();
+        private List<string> almacenamientoPlaylist = new List<string>();
+        private List<string> almacenamientoCanciones = new List<string>();
         public Espotifai(Cancion song)
         {
             songs.Add(song.GetName());
@@ -47,7 +49,7 @@ namespace SegundoLaboratorio
                 {
                     Console.WriteLine($"Canciones con el criterio: {criterio}");
                     Cancion buscada = new Cancion(valor, "", "", "");
-                    Cancion[] canciones = {buscada};
+                    Cancion[] canciones = { buscada };
                     return canciones;
                 }
                 else if (album.Contains(valor) == true)
@@ -86,9 +88,95 @@ namespace SegundoLaboratorio
                 return buscada;
             }
 
-  
+
+
+        } 
+        public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
+        {
+            if (criterio == "nombre" || criterio == "álbum" || criterio == "artista" || criterio == "género")
+            {
+                if (songs.Contains(valorCriterio) == true)
+                {
+                    if (almacenamientoPlaylist.Contains(nombrePlaylist))
+                    {
+                        Console.WriteLine("El nombre de la playlist ya existe");
+                        return false;
+                    }
+                    else
+                    {
+                        almacenamientoPlaylist.Add(nombrePlaylist);
+                        almacenamientoCanciones.Add(songs[0]);
+                        Console.WriteLine($"{almacenamientoCanciones[0]} de {artist[0]}");
+                        return true;
+                    }
+                }
+                else if (album.Contains(valorCriterio) == true)
+                {
+                    if (almacenamientoPlaylist.Contains(nombrePlaylist))
+                    {
+                        Console.WriteLine("El nombre de la playlist ya existe");
+                        return false;
+                    }
+                    else
+                    {
+                        almacenamientoPlaylist.Add(nombrePlaylist);
+                        almacenamientoCanciones.Add(songs[0]);
+                        Console.WriteLine($"{almacenamientoCanciones[0]} de {artist[0]}");
+                        return true;
+                    }
+                }
+                else if (artist.Contains(valorCriterio) == true)
+                {
+                    if (almacenamientoPlaylist.Contains(nombrePlaylist))
+                    {
+                        Console.WriteLine("El nombre de la playlist ya existe");
+                        return false;
+                    }
+                    else
+                    {
+                        almacenamientoPlaylist.Add(nombrePlaylist);
+                        almacenamientoCanciones.Add(songs[0]);
+                        Console.WriteLine($"{almacenamientoCanciones[0]} de {artist[0]}");
+                        return true;
+                    }
+                }
+                else if (gender.Contains(valorCriterio) == true)
+                {
+                    if (almacenamientoPlaylist.Contains(nombrePlaylist))
+                    {
+                        Console.WriteLine("El nombre de la playlist ya existe");
+                        return false;
+                    }
+                    else
+                    {
+                        almacenamientoPlaylist.Add(nombrePlaylist);
+                        almacenamientoCanciones.Add(songs[0]);
+                        Console.WriteLine($"{almacenamientoCanciones[0]} de {artist[0]}");
+                        return true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El valor elegido para el criterio seleccionado no es valido");
+                    return false;
+                }
+
+
+
+            }
+            else
+            {
+                Console.WriteLine("El criterio seleccionado para crear una playlist no es valido");
+                return false;
+            }
+
+        }
+        public string VerMisPlaylists()
+        {
+            string infoPlaylist;
+            infoPlaylist = $"Tiene esta playlist: {almacenamientoPlaylist[0]}, la cual contiene estas canciones: {almacenamientoCanciones[0]}";
+            return infoPlaylist;
 
         }
     }
-
 }
